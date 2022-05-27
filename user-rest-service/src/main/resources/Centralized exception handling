@@ -1,0 +1,14 @@
+The exception handling we do, should be consistent across all our rest API's.
+
+we define a bean - CommonException
+We extend ResponseEntityExceptionHandler and create a CommonExceptionHandler
+    - this ResponseEntityExceptionHandler is by default provided by spring boot and is an abstarct class
+CommonExceptionHandler will be annoted by @RestControllerAdvice
+    RestControllerAdvice -
+        . similiar to controller advice with response body
+        . class annoted with this annotation indicates, this class has @exceptionHandler methods
+        . this methods and by default provided to all the rest controllers, for default custom exception handling
+         rather than spring boots ResponseEntityException handler.
+CommonExceptionHandler will have @ExceptionHandler methods, handiling all kinds of excepetions based on the customized exception bean
+-Exception response.
+
