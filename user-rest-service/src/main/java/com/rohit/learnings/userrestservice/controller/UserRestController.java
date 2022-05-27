@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -29,12 +30,18 @@ public class UserRestController {
     }
 
     @PostMapping(path = "/user")
-    public ResponseEntity<User> createANewUser(@RequestBody User user) {
+    public ResponseEntity<User> createANewUser(@Valid @RequestBody User user) {
         User savedUser = userService.createUser(user);
         URI userLocation = ServletUriComponentsBuilder.fromCurrentRequest().
                 path("/{id}")
                 .buildAndExpand(savedUser.getId())
                 .toUri();
         return ResponseEntity.created(userLocation).build();
+    }
+
+    @DeleteMapping(path = "/user/{id}")
+    public ResponseEntity<Object> deleteUserById(@PathVariable int id){
+        userService.deleteUserById(id);
+        return ResponseEntity.noContent().build();
     }
 }

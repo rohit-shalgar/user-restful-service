@@ -1,5 +1,6 @@
 package com.rohit.learnings.userrestservice.service;
 
+import com.rohit.learnings.userrestservice.exception.CommonExceptionMessages;
 import com.rohit.learnings.userrestservice.exception.UserNotFoundException;
 import com.rohit.learnings.userrestservice.persistence.model.User;
 import com.rohit.learnings.userrestservice.persistence.repository.UserRepository;
@@ -25,7 +26,7 @@ public class UserServiceImpl implements UserService{
     public User getUserById(int id) {
         User user = userRepository.findUserById(id);
         if(Objects.isNull(user)){
-            throw new UserNotFoundException("User with the id -{" + id+"} + was not found");
+            throw new UserNotFoundException(CommonExceptionMessages.USER_NOT_FOUND+id);
         }
         return userRepository.findUserById(id);
     }
@@ -36,7 +37,10 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User deleteUserById(int id) {
-        return null;
+    public void deleteUserById(int id) {
+        User user = userRepository.deleteUserById(id);
+        if(user == null){
+            throw new UserNotFoundException(CommonExceptionMessages.USER_NOT_FOUND+id);
+        }
     }
 }

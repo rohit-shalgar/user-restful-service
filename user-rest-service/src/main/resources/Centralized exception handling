@@ -11,4 +11,5 @@ CommonExceptionHandler will be annoted by @RestControllerAdvice
          rather than spring boots ResponseEntityException handler.
 CommonExceptionHandler will have @ExceptionHandler methods, handiling all kinds of excepetions based on the customized exception bean
 -Exception response.
+- also we can override methods from ResponseEntityExceptionHandler and customize it for our needs.
 

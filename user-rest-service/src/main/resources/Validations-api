@@ -1,0 +1,10 @@
+                        SPRING BOOT STARTER VALIDATION
+
+
+- validation api is a part of spring boot starter.
+- it has validations such as minimum characters, not null, regular expressions
+  dates should be in the past or in the future.
+- common example of validation API is hibernate validator.
+- also, @Valid annotation can be used along with @RequestBody annotation - this will fail the request
+if the conditions are not met, its default implementation is provided by spring boot starter.
+- we can revert back with a default message when the validation fails.
