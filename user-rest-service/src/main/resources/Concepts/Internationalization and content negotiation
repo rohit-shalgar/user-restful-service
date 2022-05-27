@@ -1,0 +1,10 @@
+Spring boot provides MessageSource context, in which you can add
+    - messages.properties or messages_{locale}.properties
+    - spring boot can read from these files and return the corrosponding response back
+    - Locale along with accept -language can be used to achieve this.
+
+
+content negotiation-
+    - consumer can send a header - "accept" and pass Json,XML to accept the response
+        in a particular manner.
+    - need to add faster jackson xml dependency to return xml content and thats all.
