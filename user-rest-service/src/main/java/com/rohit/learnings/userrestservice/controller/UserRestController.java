@@ -30,6 +30,7 @@ public class UserRestController {
         User user = new User();
         int userId = 0;
         EntityModel<Object> entityModel = EntityModel.of(user);
+
         WebMvcLinkBuilder linkToAllUsers =  linkTo(WebMvcLinkBuilder.methodOn(userRestController).getAllUsers());
         WebMvcLinkBuilder linkToASingleUserById = linkTo(WebMvcLinkBuilder.methodOn(userRestController).findUserById(userId));
         WebMvcLinkBuilder linkToCreateAUser = linkTo(WebMvcLinkBuilder.methodOn(userRestController).createANewUser(user));
