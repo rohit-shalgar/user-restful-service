@@ -1,0 +1,6 @@
+                                 HATEOS - HYPER LINK AS APPLICATION STATE
+
+if you want to return links to other APIS' or all the APIS, we can make use of HATEOS.
+ENtityModel and WebMvcLinkBuilder can be used toghether to build a link and send it back in the response.
+
+this helps us avoid the hardcoding of urls.
