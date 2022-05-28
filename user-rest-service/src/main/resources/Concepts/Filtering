@@ -1,0 +1,12 @@
+Filtering:
+      . removing some fields from the response. ex - password,  sensitive data
+  Static FIltering:
+        .@JSONIgnoreProperties() - at the class level, it hard codes the fields so
+                                   if their names change we have to make a change.
+                                   not recommended.
+        .@JsonIgnore - field level to ignore the field from the response.
+  Dynamic filtering :
+        .MappingJacksonValue.setfilters() - provide the filters.
+        .@JsonFilter() - on the class
+
+  Dynamic is useful for APIS to have different behaviour.

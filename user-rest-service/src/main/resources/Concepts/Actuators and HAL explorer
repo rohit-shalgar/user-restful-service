@@ -1,0 +1,6 @@
+Actuators
+    . provide monitoring for our API, we can check the mappings, health,various stats
+
+HAL explorer
+    . we can visualize these actuator apis or the APIS we are exposing
+    . for a non technical person, this is a very good way to check the API, health etc.

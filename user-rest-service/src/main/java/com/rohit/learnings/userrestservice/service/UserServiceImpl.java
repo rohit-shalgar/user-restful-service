@@ -12,21 +12,21 @@ import java.util.Objects;
 
 @Service
 @SuppressWarnings("unused")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
 
     @Override
     public List<User> getAllUsers() {
-       return userRepository.findAllUsers();
+        return userRepository.findAllUsers();
     }
 
     @Override
     public User getUserById(int id) {
         User user = userRepository.findUserById(id);
-        if(Objects.isNull(user)){
-            throw new UserNotFoundException(CommonExceptionMessages.USER_NOT_FOUND+id);
+        if (Objects.isNull(user)) {
+            throw new UserNotFoundException(CommonExceptionMessages.USER_NOT_FOUND + id);
         }
         return userRepository.findUserById(id);
     }
@@ -39,8 +39,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public void deleteUserById(int id) {
         User user = userRepository.deleteUserById(id);
-        if(user == null){
-            throw new UserNotFoundException(CommonExceptionMessages.USER_NOT_FOUND+id);
+        if (user == null) {
+            throw new UserNotFoundException(CommonExceptionMessages.USER_NOT_FOUND + id);
         }
     }
 }

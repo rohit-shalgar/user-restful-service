@@ -1,0 +1,6 @@
+Versioning
+    . API can have different versions with different outputs/logics
+    . can be done using multiple URI's - URI polluting
+    . can be done by passing a custom header - X-API-VERSION - caching not possible and
+        misuse of http, not understanDABLE for non technical person
+    . can be done by sending query params as well.

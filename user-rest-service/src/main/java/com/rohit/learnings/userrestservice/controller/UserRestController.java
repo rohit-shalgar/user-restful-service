@@ -24,14 +24,14 @@ public class UserRestController {
     private UserService userService;
 
     @GetMapping(path = "/users/uris")
-    public EntityModel<Object> getAllUserUris(){
+    public EntityModel<Object> getAllUserUris() {
 
         Class<? extends UserRestController> userRestController = this.getClass();
         User user = new User();
         int userId = 0;
         EntityModel<Object> entityModel = EntityModel.of(user);
 
-        WebMvcLinkBuilder linkToAllUsers =  linkTo(WebMvcLinkBuilder.methodOn(userRestController).getAllUsers());
+        WebMvcLinkBuilder linkToAllUsers = linkTo(WebMvcLinkBuilder.methodOn(userRestController).getAllUsers());
         WebMvcLinkBuilder linkToASingleUserById = linkTo(WebMvcLinkBuilder.methodOn(userRestController).findUserById(userId));
         WebMvcLinkBuilder linkToCreateAUser = linkTo(WebMvcLinkBuilder.methodOn(userRestController).createANewUser(user));
         WebMvcLinkBuilder linkToDeletingASingleUser = linkTo(WebMvcLinkBuilder.methodOn(userRestController).deleteUserById(userId));
@@ -66,7 +66,7 @@ public class UserRestController {
     }
 
     @DeleteMapping(path = "/user/{id}")
-    public ResponseEntity<Object> deleteUserById(@PathVariable int id){
+    public ResponseEntity<Object> deleteUserById(@PathVariable int id) {
         userService.deleteUserById(id);
         return ResponseEntity.noContent().build();
     }
