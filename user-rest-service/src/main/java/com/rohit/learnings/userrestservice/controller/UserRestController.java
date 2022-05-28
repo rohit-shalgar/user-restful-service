@@ -58,6 +58,7 @@ public class UserRestController {
     @PostMapping(path = "/user")
     public ResponseEntity<User> createANewUser(@Valid @RequestBody User user) {
         User savedUser = userService.createUser(user);
+        //This will provide a URL location for the newly created user in the response headers.
         URI userLocation = ServletUriComponentsBuilder.fromCurrentRequest().
                 path("/{id}")
                 .buildAndExpand(savedUser.getId())
