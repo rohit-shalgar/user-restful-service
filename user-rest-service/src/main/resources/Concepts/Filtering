@@ -8,5 +8,5 @@ Filtering:
   Dynamic filtering :
         .MappingJacksonValue.setfilters() - provide the filters.
         .@JsonFilter() - on the class
-
+        .We can use serializeAllExcept() and filterOutAllExcept() from SimpleBeanPropertyFilter to filter the properties. 
   Dynamic is useful for APIS to have different behaviour.
